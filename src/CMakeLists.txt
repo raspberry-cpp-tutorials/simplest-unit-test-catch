@@ -16,10 +16,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Creates the compile_commands.json used by editors for code completion
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Must use GNUInstallDirs to install libraries into correct locations on all platforms:
-include(GNUInstallDirs)
-
-# To allow 'make test' command.
+# To allow 'make test' and 'ctest' commands.
 enable_testing()
 
 # Find needed libraries:
@@ -40,9 +37,6 @@ target_link_libraries(anylib
 	${OpenCV_LIBS} 
 	pthread
 )
-
-# This makes the library importable from the build directory
-export(TARGETS anylib FILE anylib.cmake)
 
 # Let's have unit tests:
 add_subdirectory(tst)
