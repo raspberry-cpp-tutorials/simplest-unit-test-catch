@@ -1,21 +1,17 @@
 # Unit Testing is the new Hello World
 
-Suppose you want to implement some sort of function, class, algorithm, or test anything with a library. Or whatever. You can rush and create
-a ``void main()`` method into a ``main.c`` file, compile, and try it. Or, with very little additional ado, you can build up
-a unit test.
+Suppose you want to implement some sort of function, class, algorithm, or test anything with a library. Or whatever. You can rush and create a ``void main()`` method into a ``main.c`` file, compile, and try it. Or, with very little additional ado, you can build up a unit test.
 
-Why would you build a unit test, when we all agree that this boring stuff invented by bored academicians only interest insipid 
-backend developpers working in banking and accounting environments? Well, apart from being all that, they are also the single most 
-effective way of developing at a fast pace while keeping a reasonable level of code and design quality.
+Why would you build a unit test? Unit testing has the reputation of being boring stuff invented by bored academicians, to entertain over-paid backend developpers working in banking and accounting environments. Well, may be it is true. On the other hand, banking and accounting firms have a clear idea of what is ROI. Unit testing is the single most effective way of developing at a fast pace while keeping a reasonable level of quality in code and design.
 
-I could not put it better than Tim King in his blog entry about [12 benefits of writing unit tests first](http://sd.jtimothyking.com/2006/07/11/twelve-benefits-of-writing-unit-tests-first/).
+I can not put it better than Tim King in his blog entry about [12 benefits of writing unit tests first](http://sd.jtimothyking.com/2006/07/11/twelve-benefits-of-writing-unit-tests-first/).
 
-From my own experience, I know that writing unit tests is difficult at the beginings. This tutorial project shows a non-trivial example of writing an orange ball detector using _OpenCV_:
-- You need to link to an external library.
-- You need external resources as images to run the tests against.
-- You probably want to see intermediary steps while debugging and tweaking the algorithm.
+From my own experience, writing a satisfactory and meaningful unit test is hard when you're not used to it. This tutorial project shows a non-trivial example about an image processor that detects oranges (or orange balls, or anything orange and vaguely round) in the provided pictures:
+- The image processor uses an external library, _OpenCV_, to do the hard work.
+- To test the image processor you need to access external resources, such as JPG pictures.
+- You probably want to be able to see intermediary steps while debugging and tweaking the algorithm.
 
-By the way, I stole the algorithm itself from this very good example of [ball tracking with opencv](https://www.pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/)
+I stole the algorithm itself from this very good example of [ball tracking with opencv](https://www.pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/).
 
 # Cross-platform development environment
 The project is configured via _cmake_ which makes it compatible with _XCode_, _Code::Build_, _gcc_ and other development tools, and this is what you need to do from either a _Mac OS X Terminal_, a _Linux Terminal_ or a _MinGW Terminal_:
@@ -28,12 +24,6 @@ mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Debug ../src
 ctest --output-on-failure
-```
-
-To run the application:
-
-```Bash
-ctest
 ```
 
 There are more detailed instructions to install a working development environment in the three major operative systems:
